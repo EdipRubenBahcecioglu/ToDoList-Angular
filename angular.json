@@ -8,6 +8,9 @@
       "schematics": {
         "@schematics/angular:component": {
           "style": "scss"
+        },
+        "@schematics/angular:application": {
+          "strict": false
         }
       },
       "root": "",
@@ -97,8 +100,21 @@
             ],
             "scripts": []
           }
+        },
+        "deploy": {
+          "builder": "@angular/fire:deploy",
+          "options": {
+            "prerender": false,
+            "ssr": false,
+            "browserTarget": "firebase-todolist:build:production",
+            "firebaseProject": "bahcecioglu-todolist",
+            "firebaseHostingSite": "bahcecioglu-todolist"
+          }
         }
       }
     }
+  },
+  "cli": {
+    "analytics": false
   }
 }

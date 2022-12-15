@@ -1,0 +1,14 @@
+{
+  "targets": {
+    "bahcecioglu-todolist": {
+      "hosting": {
+        "firebase-todolist": [
+          "bahcecioglu-todolist"
+        ]
+      }
+    }
+  },
+  "projects": {
+    "default": "bahcecioglu-todolist"
+  }
+}
