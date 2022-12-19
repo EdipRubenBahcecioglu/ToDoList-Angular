@@ -5,7 +5,10 @@
 <!--Wenn wir in der TS Datei die Variable ändern dann ändert sich das auch in der HTML Datein und wenn wir in der HTML Datei die Variable ändern dann ändert sich das auch in der TS Datei-->
 <!--ESELSBRÜCKE: BANANA IN THE BOX!! Erst die [] Klammern und darin die () Klammern siehe [(ngModel)]-->
 <ul>
-  <li  *ngFor="let t of todos;  let i = index ">{{ t.name }}<button (click)="removeTodo(i)">X</button></li>
+  <li  *ngFor="let t of todos;  let i = index ">{{ t.name }}
+    <button (click)="removeTodo(i, t.name)">Delete</button> <!--i = Index vom Todo, t.name = Name des Todos z.B. Putzen-->
+    <button (click)="archiveTodo(i, t.name)">Archiv</button>
+  </li>
   <!--Mit *ngFor starten wir eine Forschleife-->
   <!-- Wir definieren ein einzelnes Element, hier t und lassen den HTML Tag li so lange ausführen, bis der Array todos einmal durchgelaufen ist-->
   <!-- Die Variable t ist jetzt ein Element aus der Array todos und da wir hier auf den namen zugreifen möchten machen wir t.names-->
@@ -15,3 +18,21 @@
   <!--Wir würden uns damit den Schriit sparen eine subscribe Funktion zu schreiben und ein globale Variable zu definieren-->
   <!--Vorteil an unserer Methode ist es, dass wir innerhlab der subscribe Funktion auch andere nützliche Dinge sofort ausführen können z.B. ein Alert wenn eine Todo dazukommt-->
 </ul>
+
+<div>
+  <h2>Deletet Items</h2>
+  <ul>
+    <li *ngFor="let t of deleteTodos; let i = index">{{ t.name }}
+      <button (click)="undoDelete(i, t.name)">Back to List</button>
+    </li>
+  </ul>
+</div>
+
+<div>
+  <h2>Archiv Items</h2>
+  <ul>
+    <li *ngFor="let t of archiveTodos; let i = index">{{ t.name }}
+      <button (click)="undoArchive(i, t.name)">Back to List</button>
+    </li>
+  </ul>
+</div>
